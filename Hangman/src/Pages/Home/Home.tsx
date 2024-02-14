@@ -6,7 +6,6 @@ import '../../App.css'
 const Home = () => {
 
     const [wordToGuess, setWordToGuess] = useState<string>()
-    console.log(wordToGuess);
   
     const [guessedLetters, setGuessedLetters] = useState<string[]>([])
   
@@ -18,6 +17,7 @@ const Home = () => {
   
     return (
       <>
+      <div style={{fontSize:"2 rem", textAlign:"center"}}>Lose Or WIn</div>
         <HangmanDrawing />
       </>
     )
