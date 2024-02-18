@@ -31,6 +31,7 @@ const Keyboard = ({
             onClick={() => addGuessedLetters(letter)}
             className={`${styles.btn} ${isActive ? styles.active : ""} ${isInactive ? styles.inactive : ""} `}
             key={letter}
+            disabled = {isActive || isInactive}
           >
             {letter}
           </button>
