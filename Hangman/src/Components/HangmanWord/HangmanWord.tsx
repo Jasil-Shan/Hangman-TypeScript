@@ -1,6 +1,12 @@
-const HangmanWord = () => {
-  const text = "hello";
-  const guessedLetters = ["e"];
+
+
+type HangmanWordProps = {
+  guessedLetters: string[];
+  wordToGuess: string;
+};
+
+const HangmanWord = ({guessedLetters, wordToGuess}:HangmanWordProps) => {
+
   return (
     <div
       style={{
@@ -12,7 +18,7 @@ const HangmanWord = () => {
         fontFamily: "monospace",
       }}
     >
-      {text.split("").map((letter, index) => (
+      {wordToGuess.split("").map((letter, index) => (
         <span style={{ borderBottom: ".1em solid black" }} key={index}>
           <span
             style={{
