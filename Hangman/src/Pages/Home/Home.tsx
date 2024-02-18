@@ -15,7 +15,7 @@ const Home = () => {
     (letter) => !wordToGuess.includes(letter)
   );
 
-  const isLoser = incorrectLetters.length > 6;
+  const isLoser = incorrectLetters.length > 5;
   const isWinner = wordToGuess
     .split("")
     .every((letter) => guessedLetters.includes(letter));
@@ -24,11 +24,11 @@ const Home = () => {
     (letter: string) => {
       console.log("ss", letter);
 
-      if (guessedLetters.includes(letter)) return;
+      if (guessedLetters.includes(letter) || isLoser || isWinner) return;
 
       setGuessedLetters((currentLetters) => [...currentLetters, letter]);
     },
-    [guessedLetters]
+    [guessedLetters, isLoser, isWinner]
   );
   console.log(wordToGuess);
 
@@ -64,7 +64,7 @@ const Home = () => {
         {isLoser && "Oh .. oh You are Dead" }
         </div>
       <HangmanDrawing numberofGuesses={incorrectLetters.length} />
-      <HangmanWord guessedLetters={guessedLetters} wordToGuess={wordToGuess} />
+      <HangmanWord reveal = {isLoser} guessedLetters={guessedLetters} wordToGuess={wordToGuess} />
       <div style={{ alignSelf: "stretch" }}>
         <Keyboard
           disabled = {isWinner || isLoser}
