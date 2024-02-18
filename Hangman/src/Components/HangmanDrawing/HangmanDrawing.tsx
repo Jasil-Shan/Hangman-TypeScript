@@ -1,9 +1,20 @@
-import Head from "../HangmanDrawing/Body/Head/Head.jsx";
+import LeftArm from "../Body/Arms/Left/LeftArm";
+import RightArm from "../Body/Arms/Right/RightArm";
+import Chest from "../Body/Chest/Chest";
+import Head from "../Body/Head/Head";
+import LeftLeg from "../Body/Legs/Left/LeftLeg/LeftLeg";
+import RightLeg from "../Body/Legs/Right/RightLeg";
+
 
 const HangmanDrawing = () => {
   return (
     <div style={{ position: "relative" }}>
       <Head />
+      <Chest />
+      <RightArm />
+      <LeftArm />
+      <RightLeg />
+      <LeftLeg />
       <div
         style={{
           height: "50px",
