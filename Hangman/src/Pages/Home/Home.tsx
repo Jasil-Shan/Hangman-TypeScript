@@ -47,7 +47,15 @@ const Home = () => {
     return () => {
       document.removeEventListener("keypress", handler);
     };
-  }, [guessedLetters]);
+  }, [guessedLetters, wordToGuess]);
+
+  const handleRetry = () => {
+    const newWordToGuess = words[Math.floor(Math.random() * words.length)]
+    setWordToGuess(newWordToGuess)
+  
+    setGuessedLetters([])
+  }
+  
 
   return (
     <div
@@ -60,14 +68,19 @@ const Home = () => {
       }}
     >
       <div style={{ fontSize: "2 rem", textAlign: "center" }}>
-        {isWinner && "WINNER WINNER CHICKEN DINNER" }
-        {isLoser && "Oh .. oh You are Dead" }
-        </div>
+        {isWinner && "WINNER WINNER CHICKEN DINNER"}
+        {isLoser && "Oh .. oh You are Dead"}
+      </div>
       <HangmanDrawing numberofGuesses={incorrectLetters.length} />
-      <HangmanWord reveal = {isLoser} guessedLetters={guessedLetters} wordToGuess={wordToGuess} />
+      <HangmanWord
+        reveal={isLoser}
+        guessedLetters={guessedLetters}
+        wordToGuess={wordToGuess}
+      />
+      <button onClick={handleRetry}>Retry</button>
       <div style={{ alignSelf: "stretch" }}>
         <Keyboard
-          disabled = {isWinner || isLoser}
+          disabled={isWinner || isLoser}
           activeLetters={guessedLetters.filter((letter) =>
             wordToGuess.includes(letter)
           )}
