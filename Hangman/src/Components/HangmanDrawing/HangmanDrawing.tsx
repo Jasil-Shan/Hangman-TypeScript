@@ -5,26 +5,34 @@ import Head from "../Body/Head/Head";
 import LeftLeg from "../Body/Legs/Left/LeftLeg/LeftLeg";
 import RightLeg from "../Body/Legs/Right/RightLeg";
 
+type HangmanDrawingProps = {
+  numberofGuesses: number;
+};
 
-const HangmanDrawing = () => {
+const BODY_PARTS = [
+  <Head />,
+  <Chest />,
+  <RightArm />,
+  <LeftArm />,
+  <RightLeg />,
+  <LeftLeg />,
+];
+
+const HangmanDrawing = ({ numberofGuesses }: HangmanDrawingProps) => {
   return (
     <div style={{ position: "relative" }}>
-      <Head />
-      <Chest />
-      <RightArm />
-      <LeftArm />
-      <RightLeg />
-      <LeftLeg />
+      {BODY_PARTS.slice(0, numberofGuesses)}
       <div
         style={{
-          height: "50px",
+          height: "40px",
           width: "10px",
           background: "black",
           position: "absolute",
+          marginTop: "20px",
           top: 0,
           right: 0,
         }}
-      ></div>
+      />
       <div
         style={{
           height: "10px",
