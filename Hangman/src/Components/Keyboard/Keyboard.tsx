@@ -1,12 +1,14 @@
 import styles from "./Keyboard.module.css";
 
 type KeyboardProps = {
+  disabled?: boolean;
   activeLetters: string[];
   inactiveLetters: string[];
   addGuessedLetters: (letter: string) => void;
 };
 
 const Keyboard = ({
+  disabled = false,
   activeLetters,
   inactiveLetters,
   addGuessedLetters,
@@ -31,7 +33,7 @@ const Keyboard = ({
             onClick={() => addGuessedLetters(letter)}
             className={`${styles.btn} ${isActive ? styles.active : ""} ${isInactive ? styles.inactive : ""} `}
             key={letter}
-            disabled = {isActive || isInactive}
+            disabled = {isActive || isInactive || disabled}
           >
             {letter}
           </button>
