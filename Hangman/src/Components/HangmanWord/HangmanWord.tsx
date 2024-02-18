@@ -2,22 +2,25 @@ type HangmanWordProps = {
   guessedLetters: string[];
   wordToGuess: string;
   reveal?: boolean;
+  handleRetry?: () => void;
 };
 
 const HangmanWord = ({
   reveal = false,
   guessedLetters,
   wordToGuess,
+  handleRetry,
 }: HangmanWordProps) => {
   return (
     <div
       style={{
         display: "flex",
         gap: ".25rem",
-        fontSize: "6rem",
+        fontSize: "4rem",
         fontWeight: "bold",
         textTransform: "uppercase",
         fontFamily: "monospace",
+        margin:"20px"
       }}
     >
       {wordToGuess.split("").map((letter, index) => (
@@ -36,7 +39,12 @@ const HangmanWord = ({
           </span>
         </span>
       ))}
+      <div>
+        <button onClick={handleRetry}>Retry</button>
+        <button onClick={handleRetry}>Hint</button>
+      </div>
     </div>
+    
   );
 };
 

@@ -50,12 +50,11 @@ const Home = () => {
   }, [guessedLetters, wordToGuess]);
 
   const handleRetry = () => {
-    const newWordToGuess = words[Math.floor(Math.random() * words.length)]
-    setWordToGuess(newWordToGuess)
-  
-    setGuessedLetters([])
-  }
-  
+    const newWordToGuess = words[Math.floor(Math.random() * words.length)];
+    setWordToGuess(newWordToGuess);
+
+    setGuessedLetters([]);
+  };
 
   return (
     <div
@@ -67,17 +66,33 @@ const Home = () => {
         alignItems: "center",
       }}
     >
-      <div style={{ fontSize: "2 rem", textAlign: "center" }}>
+      <div
+        style={{
+          width: "100%",
+          fontSize: "2.5rem",
+          fontWeight: "bolder",
+          textAlign: "center",
+        }}
+      >
+        <span>HANGMAN</span><br />
+
         {isWinner && "WINNER WINNER CHICKEN DINNER"}
-        {isLoser && "Oh .. oh You are Dead"}
+        {isLoser && "Oh oh You are Dead"}
       </div>
       <HangmanDrawing numberofGuesses={incorrectLetters.length} />
-      <HangmanWord
-        reveal={isLoser}
-        guessedLetters={guessedLetters}
-        wordToGuess={wordToGuess}
-      />
-      <button onClick={handleRetry}>Retry</button>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "baseline",
+        }}
+      >
+        <HangmanWord
+          reveal={isLoser}
+          guessedLetters={guessedLetters}
+          wordToGuess={wordToGuess}
+          handleRetry={handleRetry}
+        />
+      </div>
       <div style={{ alignSelf: "stretch" }}>
         <Keyboard
           disabled={isWinner || isLoser}
