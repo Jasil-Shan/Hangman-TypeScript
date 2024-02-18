@@ -12,7 +12,7 @@ const Head = () => {
                 borderRadius: "100%",
                 border: "10px solid black ",
                 position: "absolute",
-                top: "50px",
+                top: "60px",
                 right: "-30px"
             }}
         />
