@@ -20,7 +20,7 @@ const BODY_PARTS = [
 
 const HangmanDrawing = ({ numberofGuesses }: HangmanDrawingProps) => {
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative", marginRight: "120px" }}>
       {BODY_PARTS.slice(0, numberofGuesses)}
       <div
         style={{
@@ -50,9 +50,7 @@ const HangmanDrawing = ({ numberofGuesses }: HangmanDrawingProps) => {
           marginLeft: "120px",
         }}
       ></div>
-      <div
-        style={{ height: "10px", width: "250px", background: "black" }}
-      ></div>
+      <div style={{ height: "10px", width: "250px", background: "black" }}></div>
     </div>
   );
 };

@@ -7,7 +7,7 @@ const LeftArm = () => {
         style={{
           width: "100px",
           height: "10px",
-          background: "black",
+          background: "white",
           position: "absolute",
           top: "150px",
           right: "10px",

@@ -7,8 +7,8 @@ const LeftLeg = () => {
         style={{
           width: "100px",
           height: "10px",
-          background: "black",
-          position: "absolute",
+
+background: "white",          position: "absolute",
           top: "210px",
           right: 0,
           rotate:"-60deg",

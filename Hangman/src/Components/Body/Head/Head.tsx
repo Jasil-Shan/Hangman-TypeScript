@@ -10,7 +10,7 @@ const Head = () => {
                 width: "50px",
                 height: "50px",
                 borderRadius: "100%",
-                border: "10px solid black ",
+                border: "10px solid white ",
                 position: "absolute",
                 top: "60px",
                 right: "-30px"

@@ -7,7 +7,7 @@ const Chest = () => {
       style={{
         width: "10px",
         height: "100px",
-        background: "black",
+        background: "white",
         position: "absolute",
         top: "120px",
         right: 0,
